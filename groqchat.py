@@ -1,18 +1,23 @@
 #api_key=st.secrets["GROQ_API_KEY"]
-from dotenv import load_dotenv
+#from dotenv import load_dotenv
 import streamlit as st
 from langchain_groq import ChatGroq
 from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
+import os
 
-#api_key=st.secrets["GROQ_API_KEY"]
+api_key=st.secrets["GROQ_API_KEY"]
+os.environ["LANGCHAIN_TRACING_V2"] = "true"
+os.environ["LANGCHAIN_ENDPOIN"]="https://api.smith.langchain.com"
+os.environ["LANGCHAIN_API_KEY"] = "ls__7c56e62a6a694fd08991b5e975429793"
+os.environ["LANGCHAIN_PROJECT"] = "Groq Application"
 
 st.markdown("""
             <h1 style="text-align:center">Groq <Sapn style="color:#9980FA">Chatbot</span></h1>
             """,unsafe_allow_html=True)
 
-load_dotenv()
+#load_dotenv()
 
 def groq_chat(input):
     outputparsor = StrOutputParser()
